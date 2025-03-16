@@ -13,19 +13,19 @@ spec:
           - path: web/prod
   template:
     metadata:
-      name: '{{path.basename}}-java-app'
+      name: '{{path.basename}}-java-app'  # Generates "dev-java-app" and "prod-java-app"
     spec:
       project: default
       source:
         repoURL: https://github.com/platof/java-app
         targetRevision: main
-        path: '{{path}}'
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: java-app
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - CreateNamespace=true
+        path: '{{path}}'  # Uses the correct directory path dynamically
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{path.basename}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
