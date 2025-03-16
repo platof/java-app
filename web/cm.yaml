@@ -10,13 +10,13 @@ data:
         name: app
       datasource:
         username: root
-        password: password
+        password: jfo5XMSE20
         url: jdbc:mysql://mysql:3306/challenge
         driver-class-name: com.mysql.cj.jdbc.Driver
       flyway:
         url: jdbc:mysql://mysql:3306/challenge
         user: root
-        password: password
+        password: jfo5XMSE20
         enabled: true
     management:
       endpoints:
