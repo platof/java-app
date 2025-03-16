@@ -11,10 +11,10 @@ data:
       datasource:
         username: root
         password: jfo5XMSE20
-        url: jdbc:mysql://mysql:3306/challenge
+        url: jdbc:mysql://mysql:3306/my_database
         driver-class-name: com.mysql.cj.jdbc.Driver
       flyway:
-        url: jdbc:mysql://mysql:3306/challenge
+        url: jdbc:mysql://mysql:3306/my_database
         user: root
         password: jfo5XMSE20
         enabled: true
