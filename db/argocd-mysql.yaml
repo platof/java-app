@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/platof/java-app
-    path: db
-    targetRevision: main
+    repoURL: https://charts.bitnami.com/bitnami
+    chart: mysql
+    targetRevision: 9.10.1
     helm:
       valueFiles:
         - values.yaml
