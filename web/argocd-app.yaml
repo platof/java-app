@@ -1,14 +1,25 @@
 apiVersion: argoproj.io/v1alpha1
-kind: Application
+kind: ApplicationSet
 metadata:
-  name: java-app
+  name: java-app-set
   namespace: argocd
 spec:
-  project: default
-  source:
-    repoURL: https://github.com/platof/java-app
-    path: web
-    targetRevision: main
+  generators:
+    - git:
+        repoURL: https://github.com/platof/java-app
+        revision: main
+        directories:
+          - path: web/dev
+          - path: web/prod
+  template:
+    metadata:
+      name: '{{path.basename}}-java-app'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/platof/java-app
+        targetRevision: main
+        path: '{{path}}'
   destination:
     server: https://kubernetes.default.svc
     namespace: java-app
