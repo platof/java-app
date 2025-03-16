@@ -22,4 +22,4 @@ data:
       endpoints:
         web:
           exposure:
-            include: ${ACTUATOR_ENDPOINTS:health,info,prometheus}
+            include: health,info,prometheus
